@@ -1,0 +1,60 @@
+<form [formGroup]="EducationForm" (ngSubmit)="educationSubmit()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row bg-body-tertiary">
+                <div class="col text-center fs-3 mb-3">
+                    Education
+                </div>
+            </div>
+            <!-- Degree Details -->
+            <div class="row" formArrayName="educationDetails">
+                <div class="col mb-3" *ngFor="let educationDetail of getControl().controls; let i = index"
+                    [formGroupName]="i">
+                    <label for="degree">Degree</label>
+                    <input type="text" class="form-control" id="degree" formControlName="degree">
+                </div>
+                <div class=" col mb-3" *ngFor="let educationDetail of getControl().controls; let i = index"
+                    [formGroupName]="i">
+                    <label for="specification">Specification</label>
+                    <input type="text" class="form-control" id="specification" formControlName="specification">
+                </div>
+            </div>
+            <!-- Institute -->
+            <div class="row" formArrayName="educationDetails">
+                <div class="col  mb-3" *ngFor="let educationDetail of getControl().controls; let i = index"
+                    [formGroupName]="i">
+                    <label for="institute">Institute</label>
+                    <input type="text" class="form-control" id="institute" formControlName="institute">
+                </div>
+            </div>
+            <!-- Grades -->
+            <div class="row" formArrayName="educationDetails">
+                <div class="col  mb-3" *ngFor="let educationDetail of getControl().controls; let i = index"
+                    [formGroupName]="i">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" id="location" formControlName="location">
+                </div>
+                <div class="col mb-3" *ngFor="let educationDetail of getControl().controls; let i = index"
+                    [formGroupName]="i">
+                    <label for="cgpa">CGPA</label>
+                    <input type="text" class="form-control" id="cgpa" formControlName="cgpa">
+                </div>
+
+            </div>
+            <!-- Submit  -->
+            <div class="row">
+                <div class="col-6 ">
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-block text center">Submit</button>
+                    </div>
+                </div>
+                <div class="col-6 ">
+                    <div class="d-grid">
+                        <button type="button" class="btn btn-secondary btn-block text-center"
+                            (click)="addEducation()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
